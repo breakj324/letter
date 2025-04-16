@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>أداة تحويل النص إلى حروف كبيرة</title>
+  <style>
+    body {
+      font-family: Arial;
+      direction: rtl;
+      text-align: center;
+      padding: 40px;
+    }
+    textarea {
+      width: 80%;
+      height: 150px;
+      font-size: 18px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    #copyBtn {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>📝 أداة تحويل النص إلى حروف كبيرة</h1>
+  <textarea id="textInput" placeholder="اكتب هنا..."></textarea><br>
+  <button onclick="convertToUpper()">حوّل الآن</button>
+
+  <h2>النتيجة:</h2>
+  <div id="result" style="margin-top: 20px; font-size: 20px; font-weight: bold;"></div>
+  <button id="copyBtn" onclick="copyResult()">📋 نسخ</button>
+
+  <!-- مكان الإعلان -->
+  <div style="margin-top: 40px;">
+    <p>🔗 رابط تابع (Affiliate):</p>
+    <a href="https://affiliate-link.com" target="_blank">احصل على استضافة مجانية الآن!</a>
+  </div>
+
+  <script>
+    function convertToUpper() {
+      const input = document.getElementById("textInput").value;
+      document.getElementById("result").textContent = input.toUpperCase();
+    }
+
+    function copyResult() {
+      const resultText = document.getElementById("result").textContent;
+      navigator.clipboard.writeText(resultText).then(() => {
+        alert("✅ تم نسخ النص!");
+      }).catch(() => {
+        alert("❌ فشل النسخ!");
+      });
+    }
+  </script>
+</body>
+</html>
